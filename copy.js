@@ -15,10 +15,5 @@ module.exports = function ($) {
 			$.deploy.dir	
 		)
 
-		copy(
-			$.dev.bower + '/modernizr/src/Modernizr.js', 
-			$.deploy.public.vendor	
-		)
-
 	})
 }
