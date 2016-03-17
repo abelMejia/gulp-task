@@ -7,8 +7,8 @@ module.exports = function ($) {
 
 	$.gulp.task('vendors', function() {
 		vendorStylus(
-			'./bower_components/normalize.styl/normalize.styl', 
-			'deploy/public/css'	
+			$.dev.bower + '/normalize.styl/normalize.styl', 
+			$.deploy.public.css	
 		)
 	})
 }

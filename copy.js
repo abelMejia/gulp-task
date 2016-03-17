@@ -6,18 +6,18 @@ module.exports = function ($) {
 
 	$.gulp.task('copy', function() {
 		copy(
-			'./dev/public/img/**/*', 
-			'deploy/public/img'	
+			$.dev.public.img + '/**/*', 
+			$.deploy.public.img	
 		)
 
 		copy(
-			'./dev/**/**/*.ico', 
-			'deploy/'	
+			$.dev.dir + '/**/**/*.ico', 
+			$.deploy.dir	
 		)
 
 		copy(
-			'./bower_components/modernizr/src/Modernizr.js', 
-			'deploy/public/js/vendor'	
+			$.dev.bower + '/modernizr/src/Modernizr.js', 
+			$.deploy.public.vendor	
 		)
 
 	})

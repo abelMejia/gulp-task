@@ -2,11 +2,11 @@ module.exports = function ($) {
 
 	$.gulp.task('jade', function() {
 	 
-	  	$.gulp.src('./dev/**/*.jade')
+	  	$.gulp.src($.dev.dir + '/**/*.jade')
 	    .pipe($.jade({
 	      pretty: true
 	    }))
-	    .pipe($.gulp.dest('./deploy/'))	
+	    .pipe($.gulp.dest($.deploy.dir))	
 	})
 
 }
