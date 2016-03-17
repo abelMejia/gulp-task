@@ -5,6 +5,11 @@ module.exports = function ($) {
 			.pipe($.babel({
 				presets: ['es2015']
 			}))
+			.pipe($.wrap( 
+				`( function() {\n
+					<%= contents %>\n
+				})();` 
+			))
 			.pipe($.gulp.dest($.deploy.dir));	
 	})
 }
