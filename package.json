@@ -1,0 +1,19 @@
+{
+  "name": "gulp-task",
+  "version": "1.0.0",
+  "description": "",
+  "main": "clean.js",
+  "scripts": {
+      "install-task": "git clone https://github.com/abelMejia/gulp-task.git tasks/tasks"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abelMejia/gulp-task.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abelMejia/gulp-task/issues"
+  },
+  "homepage": "https://github.com/abelMejia/gulp-task#readme"
+}
