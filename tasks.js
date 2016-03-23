@@ -1,8 +1,17 @@
-module.exports = function ($) {
+module.exports = ($) => {
 
-	$.gulp.task('default', function(callback) {
-	  	$.runSequence('clean:deploy', 'scripts',
-	              ['copy', 'vendors', 'stylus', 'jade','watch','server'],
-	              callback);
-	}); 
+	$.gulp.task('default', (cb) => {
+	  	$.runSequence(
+	  		'clean:deploy', 
+	  		'scripts',
+	     	[
+	        	'copy', 
+	            'vendors', 
+	            'stylus', 
+	            'jade',
+	            'watch',
+	            'server'
+	        ],
+	    cb)
+	})
 }

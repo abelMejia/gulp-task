@@ -1,10 +1,19 @@
-module.exports = function ($) {
-	$.gulp.task('scripts', function() {
+module.exports = ($) => {
 
-		return $.gulp.src('./dev/**/*.js') 
+	$.gulp.task('scripts', () => {
+
+		return $.gulp.src(`${$.dev.public.dir}/**/*.js`) 
 			.pipe($.babel({
 				presets: ['es2015']
 			}))
-			.pipe($.gulp.dest('./deploy/'));	
+			.pipe($.notify({
+		      	message: 'Script task complete'
+		    }))
+			.pipe($.wrap( 
+				`( function() {\n
+					<%= contents %>\n
+				})();` 
+			))
+			.pipe($.gulp.dest(`${$.deploy.public.dir}`))	
 	})
 }

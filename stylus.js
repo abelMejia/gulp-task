@@ -1,7 +1,10 @@
-module.exports = function ($) {
-	$.gulp.task('stylus', function() {
-		return $.gulp.src('./dev/**/**/*.styl')
+module.exports = ($) => {
+	$.gulp.task('stylus', () => {
+		return $.gulp.src(`${$.dev.dir}/**/**/*.styl`)
 	    	.pipe($.stylus())
-	    	.pipe($.gulp.dest('deploy/'));
+	    	.pipe($.notify({
+		      	message: 'Styles task complete'
+		    }))
+	    	.pipe($.gulp.dest(`${$.deploy.dir}`));
 	})
 }

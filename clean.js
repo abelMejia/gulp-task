@@ -1,8 +1,7 @@
-module.exports = function ($) {
+module.exports = ($) => {
 
-	$.gulp.task('clean:deploy', function() {
-		return $.del('./deploy/**/*', {
+	$.gulp.task('clean:deploy', () => 
+		($.del(`${$.deploy.dir}/**/*`, {
 			force: true
-		});	
-	})
+		})))
 }
