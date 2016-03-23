@@ -1,9 +1,4 @@
 module.exports = function ($) {
-	var vendorStylus = function (dev, deploy) {
-	  	$.gulp.src(dev)
-	  	.pipe($.stylus())
-	    .pipe($.gulp.dest(deploy))
-	}
 
 	var vendor = function (dev, deploy) {
 	  	$.gulp.src(dev)
@@ -11,14 +6,47 @@ module.exports = function ($) {
 	}
 
 	$.gulp.task('vendors', function() {
-		vendorStylus(
-			$.dev.bower + '/normalize.styl/normalize.styl', 
-			$.deploy.public.css	
+		//NORMALIZE
+		vendor(
+			$.dev.bower + '/normalize-css/normalize.css', 
+			$.deploy.public.vendorCss + '/normalize'
 		)
 
+		// BOOTSTRAP CSS
+		vendor(
+			$.dev.bower + '/bootstrap/dist/css/bootstrap.min.css', 
+			$.deploy.public.vendorCss + '/bootstrap'
+		)
+
+		//MODERNIZR
 		vendor(
 			$.dev.bower + '/modernizr/src/Modernizr.js', 
-			$.deploy.public.vendor
+			$.deploy.public.vendorJS + '/modernizr'
 		)
+
+		//ANGULAR
+		vendor(
+			$.dev.bower + '/angular/angular.min.js', 
+			$.deploy.public.vendorJS + '/angular'
+		)
+
+		// ANGULAR ROUTE
+		vendor(
+			$.dev.bower + '/angular-route/angular-route.min.js', 
+			$.deploy.public.vendorJS + '/angular-route'
+		)
+
+		// BOOTSTRAP JS
+		vendor(
+			$.dev.bower + '/bootstrap/dist/js/bootstrap.min.js',
+			$.deploy.public.vendorJS + '/bootstrap'
+		)
+
+		//JQUERY
+		vendor(
+			$.dev.bower + '/jquery/dist/jquery.min.js',  
+			$.deploy.public.vendorJS + '/jquery'
+		)
+
 	})
 }
